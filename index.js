@@ -24,6 +24,7 @@ const corsOptions = {
     "http://localhost:5174",
     "http://localhost:5175",
     "https://rag-notes.vercel.app",
+    "http://localhost:5176",
   ], // frontend domain
   credentials: true, // ✅ allow cookies to be sent
 };
@@ -33,7 +34,7 @@ app.use(limiter);
 app.use(express.json());
 app.use(cookieParser());
 // Centralized routes
-app.use("/", apiRoutes);
+app.use("/", apiRoutes());
 app.get("/", (_req, res) => {
   res.send(`
       <!DOCTYPE html>
